@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joe Col Joe | Rock Emotionnel - Auteur-Compositeur - Guitariste - Producteur</title>
+  <meta name="description" content="Site officiel de Joe Col Joe, projet musical de Joel Collet. Rock emotionnel, poesie et atmospheres cinematiques. Belgique.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Joe Col Joe | Rock Emotionnel">
+  <meta property="og:description" content="Auteur-Compositeur, Guitariste, Producteur. Rock emotionnel, poesie et atmospheres cinematiques.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_BE">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Joe Col Joe | Rock Emotionnel">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Rock+Salt&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Joe Col Joe",
+    "description": "Rock emotionnel, poesie et atmospheres cinematiques",
+    "genre": ["Rock", "Rock emotionnel", "Rock narratif"],
+    "foundingLocation": "Belgique",
+    "member": [
+      {"@type": "Person", "name": "Joel Collet", "roleName": "Guitares & Composition"},
+      {"@type": "Person", "name": "Jerome Sandron", "roleName": "Basses"},
+      {"@type": "Person", "name": "Olivier Scattone", "roleName": "Batterie"},
+      {"@type": "Person", "name": "Amelie Piras", "roleName": "Voix"}
+    ],
+    "sameAs": [
+      "https://youtube.com/@joecoljoe",
+      "https://instagram.com/joecoljoe"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============ PHOTO MOSAIC BACKGROUND ============ -->
+  <div class="bg-mosaic" id="bgMosaic">
+    <div class="bg-mosaic__grid">
+      <!-- Row 1 -->
+      <div class="bg-tile bg-tile--tall" data-scene="studio-recording"></div>
+      <div class="bg-tile" data-scene="guitar-closeup"></div>
+      <div class="bg-tile bg-tile--wide" data-scene="band-stage"></div>
+      <div class="bg-tile" data-scene="vinyl-records"></div>
+      <div class="bg-tile bg-tile--tall" data-scene="singer-mic"></div>
+      <div class="bg-tile" data-scene="amp-knobs"></div>
+      <!-- Row 2 -->
+      <div class="bg-tile bg-tile--wide" data-scene="crowd-concert"></div>
+      <div class="bg-tile bg-tile--tall" data-scene="bassist-shadow"></div>
+      <div class="bg-tile" data-scene="drum-sticks"></div>
+      <div class="bg-tile" data-scene="studio-console"></div>
+      <div class="bg-tile bg-tile--wide" data-scene="backstage"></div>
+      <div class="bg-tile" data-scene="guitar-headstock"></div>
+      <!-- Row 3 -->
+      <div class="bg-tile" data-scene="cables-pedals"></div>
+      <div class="bg-tile bg-tile--wide" data-scene="live-lights"></div>
+      <div class="bg-tile bg-tile--tall" data-scene="portrait-artist"></div>
+      <div class="bg-tile" data-scene="piano-keys"></div>
+      <div class="bg-tile" data-scene="sheet-music"></div>
+      <div class="bg-tile bg-tile--wide" data-scene="rehearsal"></div>
+      <!-- Row 4 -->
+      <div class="bg-tile bg-tile--tall" data-scene="microphone-vintage"></div>
+      <div class="bg-tile bg-tile--wide" data-scene="stage-smoke"></div>
+      <div class="bg-tile" data-scene="turntable"></div>
+      <div class="bg-tile" data-scene="guitar-case"></div>
+      <div class="bg-tile bg-tile--tall" data-scene="neon-sign"></div>
+      <div class="bg-tile bg-tile--wide" data-scene="band-photo"></div>
+      <!-- Row 5 -->
+      <div class="bg-tile" data-scene="speaker-cone"></div>
+      <div class="bg-tile bg-tile--wide" data-scene="hands-guitar"></div>
+      <div class="bg-tile" data-scene="ticket-stub"></div>
+      <div class="bg-tile bg-tile--tall" data-scene="silhouette-stage"></div>
+      <div class="bg-tile" data-scene="vinyl-sleeve"></div>
+      <div class="bg-tile" data-scene="studio-booth"></div>
+    </div>
+    <div class="bg-mosaic__overlay" id="bgOverlay"></div>
+  </div>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader" class="loader">
+    <svg class="loader__logo" viewBox="0 0 200 200" width="120" height="120">
+      <circle class="loader__circle" cx="100" cy="100" r="90" fill="none" stroke="#1A237E" stroke-width="4"/>
+      <text x="100" y="70" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="28" font-weight="700" letter-spacing="3">JOE</text>
+      <text x="100" y="110" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="28" font-weight="700" letter-spacing="3">COL</text>
+      <text x="100" y="150" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="28" font-weight="700" letter-spacing="3">JOE</text>
+    </svg>
+  </div>
+
+  <!-- ============ CUSTOM CURSOR ============ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <nav class="header__nav">
+      <div class="header__menu header__menu--left">
+        <a href="#univers" class="header__link">L'univers</a>
+        <a href="#groupe" class="header__link">Le groupe</a>
+        <a href="#concerts" class="header__link">Concerts</a>
+      </div>
+
+      <a href="#" class="header__logo" id="headerLogo">
+        <svg class="header__logo-svg" viewBox="0 0 200 200" width="60" height="60">
+          <circle cx="100" cy="100" r="90" fill="#1A237E" class="logo-circle"/>
+          <text x="100" y="72" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">JOE</text>
+          <text x="100" y="112" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">COL</text>
+          <text x="100" y="152" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">JOE</text>
+        </svg>
+      </a>
+
+      <div class="header__menu header__menu--right">
+        <a href="#news" class="header__link">Actualites</a>
+        <a href="#musique" class="header__link">Musique</a>
+        <a href="#videos" class="header__link">Videos</a>
+        <a href="#boutique" class="header__link">Boutique</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="header__hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#univers" class="mobile-menu__link">L'univers</a>
+      <a href="#groupe" class="mobile-menu__link">Le groupe</a>
+      <a href="#concerts" class="mobile-menu__link">Concerts</a>
+      <a href="#news" class="mobile-menu__link">Actualites</a>
+      <a href="#musique" class="mobile-menu__link">Musique</a>
+      <a href="#videos" class="mobile-menu__link">Videos</a>
+      <a href="#boutique" class="mobile-menu__link">Boutique</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO — 35mm FILM SLIDE CAROUSEL ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__filmstrip">
+      <div class="swiper hero__swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1: Joel en studio (slide d'accueil) -->
+          <div class="swiper-slide">
+            <div class="hero__slide">
+              <div class="hero__slide-mount"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--left"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--right"></div>
+              <div class="hero__slide-edge">
+                <span class="tri">478</span>
+                <span>KODAK</span>
+                <span class="tri">E100VS</span>
+                <span>9.</span>
+              </div>
+              <div class="hero__slide-bg hero__slide-bg--3"></div>
+              <div class="hero__slide-content">
+                <p class="hero__subtitle">L'artiste</p>
+                <h2 class="hero__title">Joel Collet<br><span class="hero__title--alt">Joe Col Joe</span></h2>
+                <a href="#univers" class="btn btn--primary">Decouvrir l'univers</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: No Way Out -->
+          <div class="swiper-slide">
+            <div class="hero__slide">
+              <div class="hero__slide-mount"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--left"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--right"></div>
+              <div class="hero__slide-edge">
+                <span class="tri">10</span>
+                <span>KODAK</span>
+                <span class="tri">5063</span>
+                <span>EPP</span>
+              </div>
+              <div class="hero__slide-bg hero__slide-bg--1"></div>
+              <div class="hero__slide-content">
+                <p class="hero__subtitle">Nouveau single</p>
+                <h2 class="hero__title">No Way Out<br><span class="hero__title--alt">Pas d'Issue</span></h2>
+                <a href="#musique" class="btn btn--primary">Ecouter maintenant</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Ulysse's Journey -->
+          <div class="swiper-slide">
+            <div class="hero__slide">
+              <div class="hero__slide-mount"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--left"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--right"></div>
+              <div class="hero__slide-edge">
+                <span class="tri">8</span>
+                <span>FUJI</span>
+                <span class="tri">RDP III</span>
+                <span>100</span>
+              </div>
+              <div class="hero__slide-bg hero__slide-bg--2"></div>
+              <div class="hero__slide-content">
+                <p class="hero__subtitle">EP</p>
+                <h2 class="hero__title">Ulysse's Journey</h2>
+                <a href="#musique" class="btn btn--primary">Decouvrir l'EP</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Live — en attente de la vraie photo -->
+          <div class="swiper-slide">
+            <div class="hero__slide">
+              <div class="hero__slide-mount"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--left"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--right"></div>
+              <div class="hero__slide-edge">
+                <span class="tri">24</span>
+                <span>ILFORD</span>
+                <span class="tri">HP5</span>
+                <span>400</span>
+              </div>
+              <div class="hero__slide-bg hero__slide-bg--4">
+                <video class="hero__slide-video" autoplay muted loop playsinline>
+                  <source src="assets/Dance%20with%20the%20Monkey.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="hero__slide-content">
+                <p class="hero__subtitle">En concert</p>
+                <h2 class="hero__title">Joe Col Joe<br><span class="hero__title--alt">Live</span></h2>
+                <a href="#concerts" class="btn btn--primary">Dates de concert</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Joel (dupli) -->
+          <div class="swiper-slide">
+            <div class="hero__slide">
+              <div class="hero__slide-mount"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--left"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--right"></div>
+              <div class="hero__slide-edge">
+                <span class="tri">479</span>
+                <span>KODAK</span>
+                <span class="tri">E100VS</span>
+                <span>10.</span>
+              </div>
+              <div class="hero__slide-bg hero__slide-bg--3"></div>
+              <div class="hero__slide-content">
+                <p class="hero__subtitle">L'artiste</p>
+                <h2 class="hero__title">Joel Collet<br><span class="hero__title--alt">Joe Col Joe</span></h2>
+                <a href="#univers" class="btn btn--primary">Decouvrir l'univers</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: No Way Out (dupli) -->
+          <div class="swiper-slide">
+            <div class="hero__slide">
+              <div class="hero__slide-mount"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--left"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--right"></div>
+              <div class="hero__slide-edge">
+                <span class="tri">11</span>
+                <span>KODAK</span>
+                <span class="tri">5063</span>
+                <span>EPP</span>
+              </div>
+              <div class="hero__slide-bg hero__slide-bg--1"></div>
+              <div class="hero__slide-content">
+                <p class="hero__subtitle">Nouveau single</p>
+                <h2 class="hero__title">No Way Out<br><span class="hero__title--alt">Pas d'Issue</span></h2>
+                <a href="#musique" class="btn btn--primary">Ecouter maintenant</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 7: Ulysse (dupli) -->
+          <div class="swiper-slide">
+            <div class="hero__slide">
+              <div class="hero__slide-mount"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--left"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--right"></div>
+              <div class="hero__slide-edge">
+                <span class="tri">9</span>
+                <span>FUJI</span>
+                <span class="tri">RDP III</span>
+                <span>100</span>
+              </div>
+              <div class="hero__slide-bg hero__slide-bg--2"></div>
+              <div class="hero__slide-content">
+                <p class="hero__subtitle">EP</p>
+                <h2 class="hero__title">Ulysse's Journey</h2>
+                <a href="#musique" class="btn btn--primary">Decouvrir l'EP</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 8: Live (dupli) -->
+          <div class="swiper-slide">
+            <div class="hero__slide">
+              <div class="hero__slide-mount"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--left"></div>
+              <div class="hero__slide-perfs hero__slide-perfs--right"></div>
+              <div class="hero__slide-edge">
+                <span class="tri">25</span>
+                <span>ILFORD</span>
+                <span class="tri">HP5</span>
+                <span>400</span>
+              </div>
+              <div class="hero__slide-bg hero__slide-bg--4">
+                <video class="hero__slide-video" autoplay muted loop playsinline>
+                  <source src="assets/Dance%20with%20the%20Monkey.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="hero__slide-content">
+                <p class="hero__subtitle">En concert</p>
+                <h2 class="hero__title">Joe Col Joe<br><span class="hero__title--alt">Live</span></h2>
+                <a href="#concerts" class="btn btn--primary">Dates de concert</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-button-prev hero__nav"></div>
+        <div class="swiper-button-next hero__nav"></div>
+      </div>
+    </div>
+    <div class="hero__indicator"></div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============ -->
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <h2 class="newsletter__title">Join the Mailing List</h2>
+      <form class="newsletter__form" action="#" method="post">
+        <input type="email" class="newsletter__input" placeholder="Email Address" required>
+        <button type="submit" class="newsletter__btn" aria-label="S'inscrire">&#8594;</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ CITATION 1 ============ -->
+  <section class="quote-section" id="quote1">
+    <div class="quote-section__bg"></div>
+    <div class="container">
+      <blockquote class="quote-section__text" data-animate="clip">
+        "La musique, c'est ce qui reste quand on a tout perdu."
+      </blockquote>
+      <cite class="quote-section__author">-- Joe Col Joe</cite>
+    </div>
+  </section>
+
+  <!-- ============ ACTUALITES ============ -->
+  <section class="news" id="news">
+    <div class="container">
+      <h2 class="section-title">Actualites</h2>
+      <div class="news__grid">
+
+        <article class="news__card" data-animate="fade-up">
+          <div class="news__card-img news__card-img--1"></div>
+          <div class="news__card-body">
+            <time class="news__date">10 Avril 2026</time>
+            <h3 class="news__card-title">Sortie du single "No Way Out / Pas d'Issue"</h3>
+            <p class="news__excerpt">Le premier single officiel de Joe Col Joe, produit sous le mentorat de Tarik Hamiche. Deux versions miroirs : la lutte et la redemption.</p>
+          </div>
+        </article>
+
+        <article class="news__card" data-animate="fade-up">
+          <div class="news__card-img news__card-img--2"></div>
+          <div class="news__card-body">
+            <time class="news__date">15 Mars 2026</time>
+            <h3 class="news__card-title">En studio pour le concept-album</h3>
+            <p class="news__excerpt">Joe Col Joe et son groupe sont en studio pour enregistrer les prochains titres du concept-album a venir.</p>
+          </div>
+        </article>
+
+        <article class="news__card" data-animate="fade-up">
+          <div class="news__card-img news__card-img--3"></div>
+          <div class="news__card-body">
+            <time class="news__date">20 Fevrier 2026</time>
+            <h3 class="news__card-title">Clip "No Way Out" en ligne</h3>
+            <p class="news__excerpt">Decouvrez le clip officiel de No Way Out sur YouTube. Une experience visuelle intense et cinematique.</p>
+          </div>
+        </article>
+
+      </div>
+      <div class="section-cta">
+        <a href="#" class="btn btn--outline">Voir plus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONCERTS ============ -->
+  <section class="concerts" id="concerts">
+    <div class="container">
+      <h2 class="section-title">Concerts</h2>
+      <div class="concerts__layout">
+
+        <div class="concerts__list" data-animate="fade-up">
+          <div class="concerts__item">
+            <div class="concerts__date-block">
+              <span class="concerts__day">25</span>
+              <span class="concerts__month">AVR</span>
+            </div>
+            <div class="concerts__info">
+              <h3 class="concerts__venue">Le Botanique</h3>
+              <p class="concerts__city">Bruxelles, Belgique</p>
+            </div>
+            <a href="#" class="btn btn--small">Reserver</a>
+          </div>
+
+          <div class="concerts__item">
+            <div class="concerts__date-block">
+              <span class="concerts__day">10</span>
+              <span class="concerts__month">MAI</span>
+            </div>
+            <div class="concerts__info">
+              <h3 class="concerts__venue">L'Ancienne Belgique</h3>
+              <p class="concerts__city">Bruxelles, Belgique</p>
+            </div>
+            <a href="#" class="btn btn--small">Reserver</a>
+          </div>
+
+          <div class="concerts__item">
+            <div class="concerts__date-block">
+              <span class="concerts__day">22</span>
+              <span class="concerts__month">MAI</span>
+            </div>
+            <div class="concerts__info">
+              <h3 class="concerts__venue">Le Grand Mix</h3>
+              <p class="concerts__city">Tourcoing, France</p>
+            </div>
+            <a href="#" class="btn btn--small">Reserver</a>
+          </div>
+
+          <div class="concerts__item">
+            <div class="concerts__date-block">
+              <span class="concerts__day">05</span>
+              <span class="concerts__month">JUN</span>
+            </div>
+            <div class="concerts__info">
+              <h3 class="concerts__venue">Festival Rock Werchter</h3>
+              <p class="concerts__city">Werchter, Belgique</p>
+            </div>
+            <a href="#" class="btn btn--small">Reserver</a>
+          </div>
+        </div>
+
+        <div class="concerts__visual" data-animate="fade-up">
+          <div class="concerts__video-placeholder">
+            <video class="concerts__video" autoplay muted loop playsinline>
+              <source src="assets/Dance%20with%20the%20Monkey.mp4" type="video/mp4">
+            </video>
+            <div class="concerts__video-overlay">
+              <span class="concerts__video-text">Ambiance Live</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CITATION 2 ============ -->
+  <section class="quote-section quote-section--alt" id="quote2">
+    <div class="quote-section__bg quote-section__bg--alt"></div>
+    <div class="container">
+      <blockquote class="quote-section__text" data-animate="clip">
+        "Joe Col Joe est avant tout une aventure humaine."
+      </blockquote>
+      <cite class="quote-section__author">-- Joel Collet</cite>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO MISE EN AVANT ============ -->
+  <section class="featured-video" id="videos">
+    <div class="container">
+      <h2 class="section-title">Video</h2>
+      <div class="featured-video__wrapper" data-animate="fade-up">
+        <div class="featured-video__player" id="videoPlayer">
+          <div class="featured-video__poster" id="videoPoster">
+            <img src="https://img.youtube.com/vi/-fVkHK3H4ZI/maxresdefault.jpg" alt="No Way Out - Joe Col Joe" class="featured-video__poster-img" loading="lazy">
+            <button class="featured-video__play" aria-label="Lire la video">
+              <svg viewBox="0 0 68 48" width="68" height="48">
+                <path d="M66.5 7.7s-.7-4.7-2.8-6.8C60.7-2.1 57.5-2.2 56-2.4 46.6-3 34-3 34-3h0S21.4-3 12-2.4C10.4-2.2 7.2-2.1 4.3.9 2.2 3 1.5 7.7 1.5 7.7S.8 13.2.8 18.7v5.1c0 5.5.7 11 .7 11s.7 4.7 2.8 6.8c3 3.1 6.9 3 8.6 3.3 6.2.6 26.4.8 26.4.8s12.6 0 22-0.6c1.6-0.2 4.8-0.3 7.7-3.4 2.1-2.1 2.8-6.8 2.8-6.8s.7-5.5.7-11v-5.1c0-5.5-.7-11-.7-11z" fill="#C0392B"/>
+                <path d="M27 33V13l18 10z" fill="#fff"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="featured-video__info">
+          <h3 class="featured-video__title">No Way Out</h3>
+          <p class="featured-video__desc">Premier single officiel de Joe Col Joe. Deux versions miroirs : No Way Out (VO anglaise) et Pas d'Issue (VF).</p>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="https://youtube.com/@joecoljoe" target="_blank" rel="noopener" class="btn btn--outline">Voir plus de videos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOUTIQUE APERCU ============ -->
+  <section class="shop" id="boutique">
+    <div class="container">
+      <h2 class="section-title">Boutique</h2>
+      <div class="shop__grid">
+
+        <div class="shop__card" data-animate="fade-up">
+          <div class="shop__card-img shop__card-img--1">
+            <div class="shop__glitch"></div>
+          </div>
+          <h3 class="shop__card-title">T-Shirt "No Way Out"</h3>
+          <p class="shop__card-price">29,00 EUR</p>
+          <a href="#" class="btn btn--small">Acheter</a>
+        </div>
+
+        <div class="shop__card" data-animate="fade-up">
+          <div class="shop__card-img shop__card-img--2">
+            <div class="shop__glitch"></div>
+          </div>
+          <h3 class="shop__card-title">Vinyle "Ulysse's Journey"</h3>
+          <p class="shop__card-price">24,00 EUR</p>
+          <a href="#" class="btn btn--small">Acheter</a>
+        </div>
+
+        <div class="shop__card" data-animate="fade-up">
+          <div class="shop__card-img shop__card-img--3">
+            <div class="shop__glitch"></div>
+          </div>
+          <h3 class="shop__card-title">Poster "Live Session"</h3>
+          <p class="shop__card-price">15,00 EUR</p>
+          <a href="#" class="btn btn--small">Acheter</a>
+        </div>
+
+      </div>
+      <div class="section-cta">
+        <a href="#" class="btn btn--outline">Voir toute la boutique</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__logo">
+          <svg viewBox="0 0 200 200" width="50" height="50">
+            <circle cx="100" cy="100" r="90" fill="#1A237E"/>
+            <text x="100" y="72" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">JOE</text>
+            <text x="100" y="112" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">COL</text>
+            <text x="100" y="152" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">JOE</text>
+          </svg>
+        </div>
+        <div class="footer__social">
+          <a href="https://youtube.com/@joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M23.5 6.2s-.2-1.7-1-2.4c-.9-1-1.9-1-2.4-1.1C16.8 2.4 12 2.4 12 2.4s-4.8 0-8.1.3c-.5.1-1.5.1-2.4 1.1-.8.7-1 2.4-1 2.4S.2 8.3.2 10.4v2c0 2.1.3 4.2.3 4.2s.2 1.7 1 2.4c.9 1 2.1.9 2.6 1 1.9.2 8 .3 8 .3s4.8 0 8.1-.3c.5-.1 1.5-.1 2.4-1.1.8-.7 1-2.4 1-2.4s.3-2.1.3-4.2v-2c0-2.1-.3-4.2-.3-4.2zM9.5 15.6V8.4l6.5 3.6-6.5 3.6z"/></svg>
+          </a>
+          <a href="https://instagram.com/joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7 .1 5.7.1 4.8.3 4 .6c-.8.3-1.5.7-2.2 1.4C1.1 2.7.7 3.4.4 4.2.1 5 0 5.9 0 7.2 0 8.5 0 8.9 0 12.2s0 3.7.1 5c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.2C21.3 1.1 20.6.7 19.8.4 19 .1 18.1 0 16.8 0 15.5 0 15.1 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8z"/></svg>
+          </a>
+          <a href="https://open.spotify.com/artist/joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.6-6-2-10-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.3-1 8.1-.6 11.1 1.2.4.2.5.7.3 1.1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.7-2.4-11.3-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.1-1.3 9.2-.7 12.7 1.5.3.2.5.7.3 1.2zm.1-3.4c-3.7-2.2-9.8-2.4-13.3-1.3-.5.2-1.1-.1-1.3-.6-.2-.5.1-1.1.6-1.3 4-1.2 10.7-1 14.9 1.5.5.3.6.9.4 1.4-.3.5-.9.6-1.3.3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__links">
+          <a href="#">Mentions legales</a>
+          <a href="#">Politique de confidentialite</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 Joe Col Joe. Tous droits reserves.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
