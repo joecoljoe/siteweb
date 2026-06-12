@@ -17,37 +17,69 @@
   <meta name="twitter:title" content="Joe Col Joe | Rock Emotionnel">
 
   <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Rock+Salt&display=swap" rel="stylesheet">
+  <!-- Preload critical (LCP = slide hero live + logo) -->
+  <link rel="preload" as="image" type="image/webp" href="assets/photolive_joecolejoe.webp" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="assets/joel-studio.webp">
+  <link rel="preload" as="image" type="image/webp" href="assets/logo_joecoljoe.webp">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin.woff2" crossorigin>
 
   <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="assets/vendor/swiper-bundle.min.css">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD : entite d'autorite Joe Col Joe (Wikidata Q139801632, MusicBrainz 690c937a-3bde-4b0a-afc1-b08c1be16c79) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MusicGroup",
+    "@id": "https://joecoljoe.com/#joecoljoe",
     "name": "Joe Col Joe",
-    "description": "Rock emotionnel, poesie et atmospheres cinematiques",
+    "alternateName": ["Joe Col", "Joel Collet"],
+    "url": "https://joecoljoe.com",
+    "description": "Joe Col Joe, projet musical de Joel Collet, auteur-compositeur-producteur belge developpant un univers narratif a la croisee du rock emotionnel, de la poesie et des atmospheres cinematiques.",
     "genre": ["Rock", "Rock emotionnel", "Rock narratif"],
-    "foundingLocation": "Belgique",
+    "foundingLocation": {
+      "@type": "Country",
+      "name": "Belgique"
+    },
+    "logo": "https://joecoljoe.com/assets/logo_joecoljoe.png",
+    "image": "https://joecoljoe.com/assets/photolive_joecolejoe.jpg",
     "member": [
-      {"@type": "Person", "name": "Joel Collet", "roleName": "Guitares & Composition"},
+      {"@type": "Person", "name": "Joel Collet", "alternateName": "Joe Col", "roleName": "Guitares & Composition"},
       {"@type": "Person", "name": "Jerome Sandron", "roleName": "Basses"},
-      {"@type": "Person", "name": "Olivier Scattone", "roleName": "Batterie"},
-      {"@type": "Person", "name": "Amelie Piras", "roleName": "Voix"}
+      {"@type": "Person", "name": "Olivier Scattone", "alternateName": "Oli Scattone", "roleName": "Batterie"},
+      {"@type": "Person", "name": "Amelie Piras", "alternateName": "Amel Piras", "roleName": "Voix"}
+    ],
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "Wikidata",
+        "value": "Q139801632",
+        "url": "https://www.wikidata.org/wiki/Q139801632"
+      },
+      {
+        "@type": "PropertyValue",
+        "propertyID": "MusicBrainz artist ID",
+        "value": "690c937a-3bde-4b0a-afc1-b08c1be16c79",
+        "url": "https://musicbrainz.org/artist/690c937a-3bde-4b0a-afc1-b08c1be16c79"
+      }
     ],
     "sameAs": [
-      "https://youtube.com/@joecoljoe",
-      "https://instagram.com/joecoljoe"
+      "https://www.wikidata.org/wiki/Q139801632",
+      "https://musicbrainz.org/artist/690c937a-3bde-4b0a-afc1-b08c1be16c79",
+      "https://open.spotify.com/artist/0KW8tMeg9C7jIeQ2WyWqYN",
+      "https://music.apple.com/us/artist/joe-col-joe/1862206751",
+      "https://www.deezer.com/artist/362415682",
+      "https://www.amazon.fr/music/player/artists/B0G82T6J7F/joe-col-joe",
+      "https://www.youtube.com/channel/UC1JlvEwjl186dDa1g4wnzbg",
+      "https://www.youtube.com/@joecoljoe",
+      "https://www.instagram.com/joecoljoe",
+      "https://www.facebook.com/joecoljoepro/",
+      "https://www.tiktok.com/@joecoljoe",
+      "https://soundcloud.com/joe-col-music"
     ]
   }
   </script>
@@ -98,12 +130,7 @@
 
   <!-- ============ LOADER ============ -->
   <div id="loader" class="loader">
-    <svg class="loader__logo" viewBox="0 0 200 200" width="120" height="120">
-      <circle class="loader__circle" cx="100" cy="100" r="90" fill="none" stroke="#1A237E" stroke-width="4"/>
-      <text x="100" y="70" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="28" font-weight="700" letter-spacing="3">JOE</text>
-      <text x="100" y="110" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="28" font-weight="700" letter-spacing="3">COL</text>
-      <text x="100" y="150" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="28" font-weight="700" letter-spacing="3">JOE</text>
-    </svg>
+    <picture><source srcset="assets/logo_joecoljoe.webp" type="image/webp"><img src="assets/logo_joecoljoe.png" alt="Joe Col Joe" class="loader__logo" width="160" height="160"></picture>
   </div>
 
   <!-- ============ CUSTOM CURSOR ============ -->
@@ -113,26 +140,17 @@
   <!-- ============ HEADER ============ -->
   <header class="header" id="header">
     <nav class="header__nav">
-      <div class="header__menu header__menu--left">
-        <a href="#univers" class="header__link">L'univers</a>
-        <a href="#groupe" class="header__link">Le groupe</a>
-        <a href="#concerts" class="header__link">Concerts</a>
-      </div>
-
       <a href="#" class="header__logo" id="headerLogo">
-        <svg class="header__logo-svg" viewBox="0 0 200 200" width="60" height="60">
-          <circle cx="100" cy="100" r="90" fill="#1A237E" class="logo-circle"/>
-          <text x="100" y="72" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">JOE</text>
-          <text x="100" y="112" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">COL</text>
-          <text x="100" y="152" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">JOE</text>
-        </svg>
+        <picture><source srcset="assets/logo_joecoljoe.webp" type="image/webp"><img src="assets/logo_joecoljoe.png" alt="Joe Col Joe" class="header__logo-img" width="64" height="64"></picture>
       </a>
 
-      <div class="header__menu header__menu--right">
+      <div class="header__menu">
+        <a href="biographie.html" class="header__link">Biographie</a>
+        <a href="#concerts" class="header__link">Concerts</a>
         <a href="#news" class="header__link">Actualites</a>
         <a href="#musique" class="header__link">Musique</a>
         <a href="#videos" class="header__link">Videos</a>
-        <a href="#boutique" class="header__link">Boutique</a>
+        <a href="contact.html" class="header__link">Contact</a>
       </div>
 
       <!-- Mobile hamburger -->
@@ -145,13 +163,12 @@
 
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#univers" class="mobile-menu__link">L'univers</a>
-      <a href="#groupe" class="mobile-menu__link">Le groupe</a>
+      <a href="biographie.html" class="mobile-menu__link">Biographie</a>
       <a href="#concerts" class="mobile-menu__link">Concerts</a>
       <a href="#news" class="mobile-menu__link">Actualites</a>
       <a href="#musique" class="mobile-menu__link">Musique</a>
       <a href="#videos" class="mobile-menu__link">Videos</a>
-      <a href="#boutique" class="mobile-menu__link">Boutique</a>
+      <a href="contact.html" class="mobile-menu__link">Contact</a>
     </div>
   </header>
 
@@ -177,7 +194,7 @@
               <div class="hero__slide-content">
                 <p class="hero__subtitle">L'artiste</p>
                 <h2 class="hero__title">Joel Collet<br><span class="hero__title--alt">Joe Col Joe</span></h2>
-                <a href="#univers" class="btn btn--primary">Decouvrir l'univers</a>
+                <a href="biographie.html" class="btn btn--primary">Decouvrir la biographie</a>
               </div>
             </div>
           </div>
@@ -236,11 +253,7 @@
                 <span class="tri">HP5</span>
                 <span>400</span>
               </div>
-              <div class="hero__slide-bg hero__slide-bg--4">
-                <video class="hero__slide-video" autoplay muted loop playsinline>
-                  <source src="assets/Dance%20with%20the%20Monkey.mp4" type="video/mp4">
-                </video>
-              </div>
+              <div class="hero__slide-bg hero__slide-bg--4"></div>
               <div class="hero__slide-content">
                 <p class="hero__subtitle">En concert</p>
                 <h2 class="hero__title">Joe Col Joe<br><span class="hero__title--alt">Live</span></h2>
@@ -265,7 +278,7 @@
               <div class="hero__slide-content">
                 <p class="hero__subtitle">L'artiste</p>
                 <h2 class="hero__title">Joel Collet<br><span class="hero__title--alt">Joe Col Joe</span></h2>
-                <a href="#univers" class="btn btn--primary">Decouvrir l'univers</a>
+                <a href="biographie.html" class="btn btn--primary">Decouvrir la biographie</a>
               </div>
             </div>
           </div>
@@ -324,11 +337,7 @@
                 <span class="tri">HP5</span>
                 <span>400</span>
               </div>
-              <div class="hero__slide-bg hero__slide-bg--4">
-                <video class="hero__slide-video" autoplay muted loop playsinline>
-                  <source src="assets/Dance%20with%20the%20Monkey.mp4" type="video/mp4">
-                </video>
-              </div>
+              <div class="hero__slide-bg hero__slide-bg--4"></div>
               <div class="hero__slide-content">
                 <p class="hero__subtitle">En concert</p>
                 <h2 class="hero__title">Joe Col Joe<br><span class="hero__title--alt">Live</span></h2>
@@ -348,7 +357,7 @@
   <!-- ============ NEWSLETTER ============ -->
   <section class="newsletter" id="newsletter">
     <div class="container">
-      <h2 class="newsletter__title">Join the Mailing List</h2>
+      <h2 class="newsletter__title">Rejoignez la newsletter</h2>
       <form class="newsletter__form" action="#" method="post">
         <input type="email" class="newsletter__input" placeholder="Email Address" required>
         <button type="submit" class="newsletter__btn" aria-label="S'inscrire">&#8594;</button>
@@ -373,36 +382,39 @@
       <h2 class="section-title">Actualites</h2>
       <div class="news__grid">
 
-        <article class="news__card" data-animate="fade-up">
+        <a href="blog/no-way-out.html" class="news__card news__card--link" data-animate="fade-up">
           <div class="news__card-img news__card-img--1"></div>
           <div class="news__card-body">
-            <time class="news__date">10 Avril 2026</time>
-            <h3 class="news__card-title">Sortie du single "No Way Out / Pas d'Issue"</h3>
-            <p class="news__excerpt">Le premier single officiel de Joe Col Joe, produit sous le mentorat de Tarik Hamiche. Deux versions miroirs : la lutte et la redemption.</p>
+            <time class="news__date" datetime="2026-04-20">20 avril 2026</time>
+            <h3 class="news__card-title">No Way Out &ndash; Welcome My Friend : le nouveau single rock introspectif</h3>
+            <p class="news__excerpt">Enregistre au Green Field Studio, le single aborde frontalement le flux irreversible de la vie. Heritage seventies, ADN Pink Floyd.</p>
+            <span class="news__more">Lire l'article &rarr;</span>
           </div>
-        </article>
+        </a>
 
-        <article class="news__card" data-animate="fade-up">
+        <a href="blog/pas-d-issue.html" class="news__card news__card--link" data-animate="fade-up">
           <div class="news__card-img news__card-img--2"></div>
           <div class="news__card-body">
-            <time class="news__date">15 Mars 2026</time>
-            <h3 class="news__card-title">En studio pour le concept-album</h3>
-            <p class="news__excerpt">Joe Col Joe et son groupe sont en studio pour enregistrer les prochains titres du concept-album a venir.</p>
+            <time class="news__date" datetime="2026-04-18">18 avril 2026</time>
+            <h3 class="news__card-title">Pas d'Issue : la reponse spirituelle de No Way Out</h3>
+            <p class="news__excerpt">La version francaise, plus interieure, tournee vers la redemption et l'amour. Une invitation, pas une conclusion.</p>
+            <span class="news__more">Lire l'article &rarr;</span>
           </div>
-        </article>
+        </a>
 
-        <article class="news__card" data-animate="fade-up">
+        <a href="blog/green-field-studio.html" class="news__card news__card--link" data-animate="fade-up">
           <div class="news__card-img news__card-img--3"></div>
           <div class="news__card-body">
-            <time class="news__date">20 Fevrier 2026</time>
-            <h3 class="news__card-title">Clip "No Way Out" en ligne</h3>
-            <p class="news__excerpt">Decouvrez le clip officiel de No Way Out sur YouTube. Une experience visuelle intense et cinematique.</p>
+            <time class="news__date" datetime="2026-04-10">10 avril 2026</time>
+            <h3 class="news__card-title">Green Field Studio : l'atelier ou Joe Col Joe sculpte son son</h3>
+            <p class="news__excerpt">Rencontre avec Pierre Bartholome. Regie Dolby Atmos, 12 enceintes Neumann, 25 ans de metier.</p>
+            <span class="news__more">Lire l'article &rarr;</span>
           </div>
-        </article>
+        </a>
 
       </div>
       <div class="section-cta">
-        <a href="#" class="btn btn--outline">Voir plus</a>
+        <a href="blog.html" class="btn btn--outline">Voir plus</a>
       </div>
     </div>
   </section>
@@ -413,67 +425,82 @@
       <h2 class="section-title">Concerts</h2>
       <div class="concerts__layout">
 
-        <div class="concerts__list" data-animate="fade-up">
-          <div class="concerts__item">
-            <div class="concerts__date-block">
-              <span class="concerts__day">25</span>
-              <span class="concerts__month">AVR</span>
+        <div class="concerts__list concerts__list--empty" data-animate="fade-up">
+          <div class="concerts__empty">
+            <span class="concerts__empty-kicker">Prochaines dates</span>
+            <h3 class="concerts__empty-title">En preparation</h3>
+            <p class="concerts__empty-text">
+              Joe Col Joe est actuellement en studio pour finaliser le concept-album.
+              Les prochaines dates de tournee seront annoncees ici tres prochainement.
+            </p>
+            <p class="concerts__empty-text">
+              Soyez les premiers informes : inscrivez-vous a la newsletter ou suivez-nous
+              sur les reseaux sociaux pour ne rien manquer.
+            </p>
+            <div class="concerts__empty-actions">
+              <a href="#newsletter" class="btn btn--primary">Rejoindre la newsletter</a>
+              <a href="contact.html" class="btn btn--outline">Booking &amp; contact</a>
             </div>
-            <div class="concerts__info">
-              <h3 class="concerts__venue">Le Botanique</h3>
-              <p class="concerts__city">Bruxelles, Belgique</p>
-            </div>
-            <a href="#" class="btn btn--small">Reserver</a>
-          </div>
-
-          <div class="concerts__item">
-            <div class="concerts__date-block">
-              <span class="concerts__day">10</span>
-              <span class="concerts__month">MAI</span>
-            </div>
-            <div class="concerts__info">
-              <h3 class="concerts__venue">L'Ancienne Belgique</h3>
-              <p class="concerts__city">Bruxelles, Belgique</p>
-            </div>
-            <a href="#" class="btn btn--small">Reserver</a>
-          </div>
-
-          <div class="concerts__item">
-            <div class="concerts__date-block">
-              <span class="concerts__day">22</span>
-              <span class="concerts__month">MAI</span>
-            </div>
-            <div class="concerts__info">
-              <h3 class="concerts__venue">Le Grand Mix</h3>
-              <p class="concerts__city">Tourcoing, France</p>
-            </div>
-            <a href="#" class="btn btn--small">Reserver</a>
-          </div>
-
-          <div class="concerts__item">
-            <div class="concerts__date-block">
-              <span class="concerts__day">05</span>
-              <span class="concerts__month">JUN</span>
-            </div>
-            <div class="concerts__info">
-              <h3 class="concerts__venue">Festival Rock Werchter</h3>
-              <p class="concerts__city">Werchter, Belgique</p>
-            </div>
-            <a href="#" class="btn btn--small">Reserver</a>
           </div>
         </div>
 
         <div class="concerts__visual" data-animate="fade-up">
           <div class="concerts__video-placeholder">
-            <video class="concerts__video" autoplay muted loop playsinline>
-              <source src="assets/Dance%20with%20the%20Monkey.mp4" type="video/mp4">
-            </video>
             <div class="concerts__video-overlay">
               <span class="concerts__video-text">Ambiance Live</span>
             </div>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MUSIQUE — SPOTIFY ============ -->
+  <section class="music" id="musique">
+    <div class="music__bg"></div>
+    <div class="container">
+      <h2 class="section-title">Musique</h2>
+
+      <div class="music__layout" data-animate="fade-up">
+        <div class="music__visual">
+          <div class="music__vinyl">
+            <div class="music__vinyl-cover"></div>
+            <div class="music__vinyl-spindle"></div>
+          </div>
+        </div>
+
+        <div class="music__content">
+          <p class="music__eyebrow">Nouveau single</p>
+          <h3 class="music__title">No Way Out <span class="music__title-alt">/ Pas d'Issue</span></h3>
+          <p class="music__desc">
+            Premier single officiel de Joe Col Joe. Deux versions miroirs : la lutte en anglais,
+            la redemption en francais. Ecoute directement ci-dessous — chaque play compte sur Spotify.
+          </p>
+
+          <div class="music__player" id="spotifyPlayer"
+               data-spotify-src="https://open.spotify.com/embed/artist/0KW8tMeg9C7jIeQ2WyWqYN?utm_source=generator&theme=0"
+               style="min-height:352px">
+            <noscript>
+              <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0KW8tMeg9C7jIeQ2WyWqYN?utm_source=generator&theme=0" width="100%" height="352" frameborder="0"></iframe>
+            </noscript>
+          </div>
+
+          <div class="music__actions music__actions--center">
+            <a href="https://open.spotify.com/artist/0KW8tMeg9C7jIeQ2WyWqYN" target="_blank" rel="noopener" class="btn btn--primary music__btn music__btn--spotify">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.6-6-2-10-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.3-1 8.1-.6 11.1 1.2.4.2.5.7.3 1.1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.7-2.4-11.3-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.1-1.3 9.2-.7 12.7 1.5.3.2.5.7.3 1.2zm.1-3.4c-3.7-2.2-9.8-2.4-13.3-1.3-.5.2-1.1-.1-1.3-.6-.2-.5.1-1.1.6-1.3 4-1.2 10.7-1 14.9 1.5.5.3.6.9.4 1.4-.3.5-.9.6-1.3.3z"/>
+              </svg>
+              Ecouter sur Spotify
+            </a>
+          </div>
+
+          <ul class="music__platforms">
+            <li><a href="https://music.apple.com/us/artist/joe-col-joe/1862206751" target="_blank" rel="noopener">Apple Music</a></li>
+            <li><a href="https://www.deezer.com/fr/artist/362415682" target="_blank" rel="noopener">Deezer</a></li>
+            <li><a href="https://www.amazon.fr/music/player/artists/B0G82T6J7F/joe-col-joe" target="_blank" rel="noopener">Amazon Music</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -495,8 +522,8 @@
       <h2 class="section-title">Video</h2>
       <div class="featured-video__wrapper" data-animate="fade-up">
         <div class="featured-video__player" id="videoPlayer">
-          <div class="featured-video__poster" id="videoPoster">
-            <img src="https://img.youtube.com/vi/-fVkHK3H4ZI/maxresdefault.jpg" alt="No Way Out - Joe Col Joe" class="featured-video__poster-img" loading="lazy">
+          <div class="featured-video__poster" id="videoPoster" data-video-id="Z3SPbMP4Km0" data-video-title="Eclats de vie - Joe Col Joe">
+            <img src="https://img.youtube.com/vi/Z3SPbMP4Km0/maxresdefault.jpg" alt="Eclats de vie - Joe Col Joe" class="featured-video__poster-img" loading="lazy">
             <button class="featured-video__play" aria-label="Lire la video">
               <svg viewBox="0 0 68 48" width="68" height="48">
                 <path d="M66.5 7.7s-.7-4.7-2.8-6.8C60.7-2.1 57.5-2.2 56-2.4 46.6-3 34-3 34-3h0S21.4-3 12-2.4C10.4-2.2 7.2-2.1 4.3.9 2.2 3 1.5 7.7 1.5 7.7S.8 13.2.8 18.7v5.1c0 5.5.7 11 .7 11s.7 4.7 2.8 6.8c3 3.1 6.9 3 8.6 3.3 6.2.6 26.4.8 26.4.8s12.6 0 22-0.6c1.6-0.2 4.8-0.3 7.7-3.4 2.1-2.1 2.8-6.8 2.8-6.8s.7-5.5.7-11v-5.1c0-5.5-.7-11-.7-11z" fill="#C0392B"/>
@@ -506,52 +533,12 @@
           </div>
         </div>
         <div class="featured-video__info">
-          <h3 class="featured-video__title">No Way Out</h3>
-          <p class="featured-video__desc">Premier single officiel de Joe Col Joe. Deux versions miroirs : No Way Out (VO anglaise) et Pas d'Issue (VF).</p>
+          <h3 class="featured-video__title">Eclats de vie</h3>
+          <p class="featured-video__desc">Dernier clip de Joe Col Joe, disponible sur YouTube. Une evocation lumineuse et cinematique de ces instants qui nous traversent.</p>
         </div>
       </div>
       <div class="section-cta">
         <a href="https://youtube.com/@joecoljoe" target="_blank" rel="noopener" class="btn btn--outline">Voir plus de videos</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BOUTIQUE APERCU ============ -->
-  <section class="shop" id="boutique">
-    <div class="container">
-      <h2 class="section-title">Boutique</h2>
-      <div class="shop__grid">
-
-        <div class="shop__card" data-animate="fade-up">
-          <div class="shop__card-img shop__card-img--1">
-            <div class="shop__glitch"></div>
-          </div>
-          <h3 class="shop__card-title">T-Shirt "No Way Out"</h3>
-          <p class="shop__card-price">29,00 EUR</p>
-          <a href="#" class="btn btn--small">Acheter</a>
-        </div>
-
-        <div class="shop__card" data-animate="fade-up">
-          <div class="shop__card-img shop__card-img--2">
-            <div class="shop__glitch"></div>
-          </div>
-          <h3 class="shop__card-title">Vinyle "Ulysse's Journey"</h3>
-          <p class="shop__card-price">24,00 EUR</p>
-          <a href="#" class="btn btn--small">Acheter</a>
-        </div>
-
-        <div class="shop__card" data-animate="fade-up">
-          <div class="shop__card-img shop__card-img--3">
-            <div class="shop__glitch"></div>
-          </div>
-          <h3 class="shop__card-title">Poster "Live Session"</h3>
-          <p class="shop__card-price">15,00 EUR</p>
-          <a href="#" class="btn btn--small">Acheter</a>
-        </div>
-
-      </div>
-      <div class="section-cta">
-        <a href="#" class="btn btn--outline">Voir toute la boutique</a>
       </div>
     </div>
   </section>
@@ -561,29 +548,36 @@
     <div class="container">
       <div class="footer__top">
         <div class="footer__logo">
-          <svg viewBox="0 0 200 200" width="50" height="50">
-            <circle cx="100" cy="100" r="90" fill="#1A237E"/>
-            <text x="100" y="72" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">JOE</text>
-            <text x="100" y="112" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">COL</text>
-            <text x="100" y="152" text-anchor="middle" fill="#fff" font-family="Jost, sans-serif" font-size="30" font-weight="700" letter-spacing="2">JOE</text>
-          </svg>
+          <picture><source srcset="assets/logo_joecoljoe.webp" type="image/webp"><img src="assets/logo_joecoljoe.png" alt="Joe Col Joe" width="56" height="56"></picture>
         </div>
         <div class="footer__social">
           <a href="https://youtube.com/@joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M23.5 6.2s-.2-1.7-1-2.4c-.9-1-1.9-1-2.4-1.1C16.8 2.4 12 2.4 12 2.4s-4.8 0-8.1.3c-.5.1-1.5.1-2.4 1.1-.8.7-1 2.4-1 2.4S.2 8.3.2 10.4v2c0 2.1.3 4.2.3 4.2s.2 1.7 1 2.4c.9 1 2.1.9 2.6 1 1.9.2 8 .3 8 .3s4.8 0 8.1-.3c.5-.1 1.5-.1 2.4-1.1.8-.7 1-2.4 1-2.4s.3-2.1.3-4.2v-2c0-2.1-.3-4.2-.3-4.2zM9.5 15.6V8.4l6.5 3.6-6.5 3.6z"/></svg>
           </a>
-          <a href="https://instagram.com/joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+          <a href="https://www.instagram.com/joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7 .1 5.7.1 4.8.3 4 .6c-.8.3-1.5.7-2.2 1.4C1.1 2.7.7 3.4.4 4.2.1 5 0 5.9 0 7.2 0 8.5 0 8.9 0 12.2s0 3.7.1 5c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.2C21.3 1.1 20.6.7 19.8.4 19 .1 18.1 0 16.8 0 15.5 0 15.1 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8z"/></svg>
           </a>
-          <a href="https://open.spotify.com/artist/joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="Spotify">
+          <a href="https://www.facebook.com/joecoljoepro/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M24 12C24 5.373 18.627 0 12 0S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12h3.047V9.356c0-3.007 1.792-4.668 4.533-4.668 1.312 0 2.686.234 2.686.234v2.953H15.83c-1.491 0-1.956.925-1.956 1.874V12h3.328l-.532 3.47h-2.796v8.384C19.612 22.954 24 17.99 24 12z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.07A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg>
+          </a>
+          <a href="https://open.spotify.com/artist/0KW8tMeg9C7jIeQ2WyWqYN" target="_blank" rel="noopener" class="footer__social-link" aria-label="Spotify">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.6-6-2-10-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.3-1 8.1-.6 11.1 1.2.4.2.5.7.3 1.1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.7-2.4-11.3-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.1-1.3 9.2-.7 12.7 1.5.3.2.5.7.3 1.2zm.1-3.4c-3.7-2.2-9.8-2.4-13.3-1.3-.5.2-1.1-.1-1.3-.6-.2-.5.1-1.1.6-1.3 4-1.2 10.7-1 14.9 1.5.5.3.6.9.4 1.4-.3.5-.9.6-1.3.3z"/></svg>
+          </a>
+          <a href="https://soundcloud.com/joe-col-music" target="_blank" rel="noopener" class="footer__social-link" aria-label="SoundCloud">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.113c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.113-.27-2.154c0-.057-.045-.1-.09-.1m-.899.828c-.05 0-.09.04-.099.1L0 14.479l.177 1.293c0 .053.05.1.099.1.05 0 .09-.047.099-.1l.208-1.293-.208-1.326c-.01-.06-.05-.1-.099-.1m1.83-1.89c-.064 0-.115.052-.123.122l-.22 3.205.22 3.105c.008.07.059.121.123.121.063 0 .114-.051.124-.121l.249-3.105-.25-3.205c-.009-.07-.06-.121-.123-.121m.9-.121c-.066 0-.12.054-.127.124l-.208 3.326.208 3.182c.007.071.061.122.128.122.065 0 .118-.051.126-.122l.237-3.182-.237-3.326c-.008-.07-.061-.124-.126-.124m.898.23c-.073 0-.133.06-.14.134l-.196 3.096.196 3.142c.007.073.067.132.14.132.073 0 .133-.059.14-.132l.222-3.142-.222-3.096c-.007-.074-.066-.134-.14-.134m.908-.33c-.081 0-.148.067-.153.15l-.18 3.411.18 3.086c.006.083.072.148.153.148.082 0 .146-.065.152-.148l.203-3.086-.203-3.411c-.006-.083-.07-.15-.152-.15m.914-.263c-.09 0-.162.072-.168.167l-.168 3.513.168 3.063c.006.094.078.166.168.166.089 0 .16-.072.167-.166l.19-3.063-.19-3.513c-.006-.095-.078-.167-.167-.167m1.041-.156c-.006-.1-.086-.179-.187-.179-.1 0-.181.079-.187.179l-.16 3.716.16 3.024c.006.099.086.177.187.177.1 0 .18-.078.187-.177l.182-3.024-.182-3.716m.912.022c-.101 0-.194.093-.2.195L9.35 14.46l.13 3.014c.006.103.095.193.198.193.103 0 .193-.09.2-.193l.147-3.014-.148-3.717c-.006-.102-.096-.195-.2-.195m.912.196c-.113 0-.207.1-.214.214l-.109 3.502.109 2.996c.006.113.1.211.214.211.113 0 .207-.098.214-.211l.124-2.996-.124-3.502c-.007-.114-.1-.214-.214-.214m.923.195c-.123 0-.222.106-.227.229l-.09 3.306.09 2.978c.006.123.105.227.227.227.122 0 .221-.104.228-.227l.103-2.978-.103-3.306c-.007-.123-.106-.229-.228-.229m.928-.088c-.133 0-.24.115-.245.247l-.07 3.394.07 2.958c.006.133.112.245.245.245.133 0 .24-.113.245-.245l.08-2.958-.08-3.394c-.005-.133-.112-.247-.245-.247m.947-.089c-.143 0-.257.124-.26.267l-.05 3.305.05 2.941c.003.143.117.264.26.264s.257-.121.26-.264l.057-2.941-.057-3.305c-.003-.143-.117-.267-.26-.267m.942.088c-.154 0-.278.133-.281.29l-.032 3.194.032 2.924c.003.157.127.287.281.287.154 0 .278-.13.281-.287l.037-2.924-.037-3.194c-.003-.156-.127-.29-.281-.29m.955-.353c-.167 0-.302.145-.305.315l-.016 3.532.016 2.909c.003.17.138.311.305.311.167 0 .302-.141.305-.311l.019-2.909-.019-3.532c-.003-.17-.138-.315-.305-.315m.96-.44c-.179 0-.322.154-.325.339l-.006 3.947.006 2.892c.003.186.146.334.325.334s.322-.148.325-.334l.006-2.892-.006-3.947c-.003-.185-.146-.339-.325-.339m.977-.14c-.19 0-.341.161-.344.363L14.74 14.4l.001 2.878c.003.202.155.365.344.365.19 0 .341-.163.344-.365l.003-2.878-.003-5.195c-.003-.202-.155-.363-.344-.363m2.6 2.067c-.38 0-.748.075-1.084.211-.221-2.49-2.291-4.447-4.826-4.447-1.061 0-2.036.336-2.825.914-.331.242-.342.477-.343.748v7.897c0 .247.193.452.44.482l8.638.006c1.881 0 3.397-1.538 3.397-3.409 0-1.884-1.515-3.402-3.397-3.402"/></svg>
+          </a>
+          <a href="mailto:joecoljoe@yahoo.com" class="footer__social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
           </a>
         </div>
       </div>
       <div class="footer__bottom">
         <div class="footer__links">
-          <a href="#">Mentions legales</a>
-          <a href="#">Politique de confidentialite</a>
+          <a href="mentions-legales.html">Mentions legales</a>
+          <a href="politique-confidentialite.html">Politique de confidentialite</a>
         </div>
         <p class="footer__copy">&copy; 2026 Joe Col Joe. Tous droits reserves.</p>
       </div>
@@ -591,9 +585,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="assets/vendor/swiper-bundle.min.js" defer></script>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>

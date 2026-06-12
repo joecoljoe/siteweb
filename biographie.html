@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biographie | Joe Col Joe - Rock Emotionnel</title>
+  <meta name="description" content="Joe Col Joe, projet musical de Joel Collet. Auteur-compositeur-producteur belge developpant un univers narratif, a la croisee du rock emotionnel, de la poesie et des atmospheres cinematiques.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Biographie | Joe Col Joe">
+  <meta property="og:description" content="Decouvrez le parcours de Joel Collet, alias Joe Col, et l'aventure humaine du groupe Joe Col Joe.">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="fr_BE">
+
+  <!-- Preconnect -->
+  <!-- Custom CSS -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/jost-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div id="loader" class="loader">
+    <picture><source srcset="assets/logo_joecoljoe.webp" type="image/webp"><img src="assets/logo_joecoljoe.png" alt="Joe Col Joe" class="loader__logo" width="160" height="160"></picture>
+  </div>
+
+  <!-- ============ CUSTOM CURSOR ============ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-outline" id="cursorOutline"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="header">
+    <nav class="header__nav">
+      <a href="index.html" class="header__logo" id="headerLogo">
+        <picture><source srcset="assets/logo_joecoljoe.webp" type="image/webp"><img src="assets/logo_joecoljoe.png" alt="Joe Col Joe" class="header__logo-img" width="64" height="64"></picture>
+      </a>
+
+      <div class="header__menu">
+        <a href="biographie.html" class="header__link">Biographie</a>
+        <a href="index.html#concerts" class="header__link">Concerts</a>
+        <a href="index.html#news" class="header__link">Actualites</a>
+        <a href="index.html#musique" class="header__link">Musique</a>
+        <a href="index.html#videos" class="header__link">Videos</a>
+        <a href="contact.html" class="header__link">Contact</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="header__hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="biographie.html" class="mobile-menu__link">Biographie</a>
+      <a href="index.html#concerts" class="mobile-menu__link">Concerts</a>
+      <a href="index.html#news" class="mobile-menu__link">Actualites</a>
+      <a href="index.html#musique" class="mobile-menu__link">Musique</a>
+      <a href="index.html#videos" class="mobile-menu__link">Videos</a>
+      <a href="contact.html" class="mobile-menu__link">Contact</a>
+    </div>
+  </header>
+
+  <!-- ============ BIO HERO ============ -->
+  <section class="bio-hero">
+    <div class="bio-hero__bg"></div>
+    <div class="container">
+      <p class="bio-hero__eyebrow">Biographie</p>
+      <h1 class="bio-hero__title">Joe Col Joe<br><span class="bio-hero__title-alt">Joel Collet</span></h1>
+      <p class="bio-hero__tagline">
+        Projet musical de Joe Col, auteur-compositeur-producteur belge. Un univers profondement narratif,
+        a la croisee du rock emotionnel, de la poesie et des atmospheres cinematiques.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ BIO — MAGAZINE LAYOUT ============ -->
+  <section class="bio-mag">
+    <div class="container">
+
+      <!-- Opening lead -->
+      <blockquote class="bio-mag__lead" data-animate="fade-up">
+        Joe Col Joe est avant tout une aventure humaine.
+      </blockquote>
+
+      <!-- Row A — TEXT LEFT / PHOTO RIGHT -->
+      <article class="mag-row" data-animate="fade-up">
+        <div class="mag-row__content">
+          <p class="mag-row__kicker">L'univers</p>
+          <h3 class="mag-row__subhead">
+            Un projet narratif a la croisee du rock emotionnel, de la poesie et des atmospheres cinematiques.
+          </h3>
+          <div class="mag-row__text">
+            <p>
+              <strong>Joe Col Joe</strong>, projet musical de <strong>Joe Col</strong>, auteur-compositeur-producteur belge,
+              developpe un univers musical profondement narratif. Derriere le projet, <strong>Joel Collet</strong>,
+              musicien de toujours, tisse des chansons qui racontent, qui evoquent et qui laissent une empreinte.
+            </p>
+            <p>
+              Entre guitare humaine et atmospheres digitales, chaque morceau devient un chapitre — un chapitre
+              qui se lit en anglais ou en francais, au gre d'une double langue assumee.
+            </p>
+          </div>
+        </div>
+        <!-- === PHOTO 1 : portrait / studio — remplace assets/photo-bio-1.jpg === -->
+        <figure class="mag-row__media">
+          <picture><source srcset="assets/photolive_joecolejoe.webp" type="image/webp"><img src="assets/photolive_joecolejoe.jpg" width="1600" height="1067" alt="Joe Col en scene" loading="lazy"></picture>
+        </figure>
+      </article>
+
+      <!-- Pull quote 1 -->
+      <blockquote class="mag-pull" data-animate="fade-up">
+        Une musique ou l'emotion prime sur la virtuosite, ou la guitare raconte avant de demontrer.
+      </blockquote>
+
+      <!-- Row B — PHOTO LEFT / TEXT RIGHT -->
+      <article class="mag-row mag-row--reverse" data-animate="fade-up">
+        <figure class="mag-row__media">
+          <picture><source srcset="assets/bio-gilmour.webp" type="image/webp"><img src="assets/bio-gilmour.jpg" width="1200" height="1500" alt="Rencontres fondatrices — Dadi, David Gilmour, Steve Hackett, Arno" loading="lazy"></picture>
+        </figure>
+        <div class="mag-row__content">
+          <p class="mag-row__kicker">Les rencontres fondatrices</p>
+          <h3 class="mag-row__subhead">
+            De Dadi a David Gilmour, des legendes qui ont nourri la vision.
+          </h3>
+          <div class="mag-row__text">
+            <p>
+              Le son de Joe Col Joe s'est nourri de rencontres marquantes avec
+              <strong>Marcel Dadi</strong>, <strong>David Gilmour</strong>, <strong>Steve Hackett</strong>
+              ou encore <strong>Arno</strong>. Autant de figures qui ont nourri une vision : celle d'une
+              musique de l'instant, sincere, ou chaque note a un role narratif.
+            </p>
+            <p>
+              De ces rencontres nait un langage propre — un rock emotionnel qui prefere l'intensite
+              au demonstratif, et le cinema au simple refrain.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Row C — TEXT LEFT / PHOTO RIGHT -->
+      <article class="mag-row" data-animate="fade-up">
+        <div class="mag-row__content">
+          <p class="mag-row__kicker">Les origines</p>
+          <h3 class="mag-row__subhead">
+            De U-Men Touch a Joe Col Joe : une rencontre, une vision, un quatuor.
+          </h3>
+          <div class="mag-row__text">
+            <p>
+              Tout commence avec la rencontre entre <strong>Joe Col</strong>, guitariste "old school" blues rock,
+              et <strong>Jerome Sandron</strong>, bassiste electro-pop, contrebassiste de formation et ingenieur du son.
+              Ensemble, ils font naitre un genre a tendance <em>French Touch</em>, pour toucher les coeurs
+              et sensibiliser aux valeurs qui leur tiennent a coeur.
+            </p>
+            <p>
+              Puis <strong>Olivier Scattone</strong>, batteur hard rock et metal, riche d'une decennie passee
+              sur les scenes americaines, rejoint l'equipe. Il manquait une voix :
+              c'est <strong>Amel (Amelie Piras)</strong>, rencontree dans un magasin de musique, qui la porte aujourd'hui.
+            </p>
+          </div>
+        </div>
+        <figure class="mag-row__media">
+          <picture><source srcset="assets/bio-origines.webp" type="image/webp"><img src="assets/bio-origines.jpg" width="1200" height="1500" alt="Les origines de Joe Col Joe" loading="lazy"></picture>
+        </figure>
+      </article>
+
+      <!-- Pull quote 2 — BIG -->
+      <blockquote class="mag-pull mag-pull--script" data-animate="fade-up">
+        Un melange d'organique et d'intelligence artificielle,<br>
+        entre guitare humaine et atmospheres digitales.
+      </blockquote>
+
+      <!-- Row D — PHOTO LEFT / TEXT RIGHT -->
+      <article class="mag-row mag-row--reverse" data-animate="fade-up">
+        <figure class="mag-row__media">
+          <picture><source srcset="assets/bio-valeurs.webp" type="image/webp"><img src="assets/bio-valeurs.jpg" width="1200" height="1500" alt="Joe Col Joe — les valeurs" loading="lazy"></picture>
+        </figure>
+        <div class="mag-row__content">
+          <p class="mag-row__kicker">Les valeurs</p>
+          <h3 class="mag-row__subhead">
+            La Terre, la liberte, la purete de l'ame.
+          </h3>
+          <div class="mag-row__text">
+            <p>
+              Originaire du <em>Pays Noir-Jaune Rock</em> (rouge), le quatuor aux personnalites eclectiques,
+              influence par des groupes mythiques comme <strong>Pink Floyd</strong>, propose un melange
+              d'atmospheres planantes, propices a l'evasion.
+            </p>
+            <p>
+              Plusieurs themes traversent l'oeuvre : preserver la planete Terre (<em>Blue Earth Cherie</em>),
+              la non-violence gandhienne et la purete de l'ame (<em>Purify, Sanctify, Reflexion</em>),
+              la liberte (<em>Interdit d'interdire</em>) &mdash; et bien d'autres a decouvrir.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Closing text — full width, no photo -->
+      <article class="mag-outro" data-animate="fade-up">
+        <p class="mag-row__kicker">Le son signature</p>
+        <h3 class="mag-row__subhead">
+          L'alliance de l'humain et de la machine, au service du recit.
+        </h3>
+        <div class="mag-row__text">
+          <p>
+            Joe Col Joe collabore etroitement avec <strong>Tarik Hamiche</strong>, producteur et mentor artistique.
+            Ensemble, ils developpent un son signature qui marie guitare humaine et atmospheres digitales.
+            Le premier single officiel, <strong>No Way Out / Pas d'Issue</strong>, marque le point de depart
+            du concept-album et de l'univers Joe Col Joe.
+          </p>
+          <p>
+            L'ecriture des textes est confiee en grande partie a <strong>Sarah Dufrasne</strong>,
+            traductrice aux communautes europeennes et auteur du roman <em>Oh My Atrium</em>.
+            On lui doit la magnifique traduction <em>Banned Banning</em>, version anglaise
+            d'<em>Interdit d'interdire</em>, en parfaite adequation avec les problematiques du 21eme siecle.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ MEMBRES DU GROUPE ============ -->
+  <section class="bio-members">
+    <div class="container">
+      <h2 class="section-title">Le groupe</h2>
+      <p class="bio-members__intro" data-animate="fade-up">
+        Quatre personnalites eclectiques reunies autour d'une meme vision : faire de la musique une aventure humaine,
+        un souffle partage, une invitation a la liberte.
+      </p>
+
+      <div class="bio-members__grid">
+
+        <div class="bio-member" data-animate="fade-up">
+          <div class="bio-member__photo" style="background-image:url('assets/member-joecol.webp')"></div>
+          <h3 class="bio-member__name">Joe Col</h3>
+          <p class="bio-member__role">Guitares &amp; Composition</p>
+          <p class="bio-member__desc">Guitariste "old school" blues rock, auteur-compositeur-producteur. Ame du projet Joe Col Joe.</p>
+        </div>
+
+        <div class="bio-member" data-animate="fade-up">
+          <div class="bio-member__photo" style="background-image:url('assets/member-jerome.webp')"></div>
+          <h3 class="bio-member__name">Jerome Sandron</h3>
+          <p class="bio-member__role">Basses</p>
+          <p class="bio-member__desc">Contrebassiste de formation, ingenieur du son chez Digipro Mastering puis dans son propre studio. Ancien membre des Gangsters d'amour.</p>
+        </div>
+
+        <div class="bio-member" data-animate="fade-up">
+          <div class="bio-member__photo" style="background-image:url('assets/member-oli.webp')"></div>
+          <h3 class="bio-member__name">Oli Scattone</h3>
+          <p class="bio-member__role">Batterie</p>
+          <p class="bio-member__desc">Batteur hard rock et metal, fort d'une decennie passee sur les scenes americaines.</p>
+        </div>
+
+        <div class="bio-member" data-animate="fade-up">
+          <div class="bio-member__photo" style="background-image:url('assets/member-amel.webp')"></div>
+          <h3 class="bio-member__name">Amel Piras</h3>
+          <p class="bio-member__role">Voix</p>
+          <p class="bio-member__desc">Voix feminine du groupe, rencontree dans un magasin de musique. Elle donne corps aux mots et lumiere aux refrains.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__logo">
+          <picture><source srcset="assets/logo_joecoljoe.webp" type="image/webp"><img src="assets/logo_joecoljoe.png" alt="Joe Col Joe" width="56" height="56"></picture>
+        </div>
+        <div class="footer__social">
+          <a href="https://youtube.com/@joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M23.5 6.2s-.2-1.7-1-2.4c-.9-1-1.9-1-2.4-1.1C16.8 2.4 12 2.4 12 2.4s-4.8 0-8.1.3c-.5.1-1.5.1-2.4 1.1-.8.7-1 2.4-1 2.4S.2 8.3.2 10.4v2c0 2.1.3 4.2.3 4.2s.2 1.7 1 2.4c.9 1 2.1.9 2.6 1 1.9.2 8 .3 8 .3s4.8 0 8.1-.3c.5-.1 1.5-.1 2.4-1.1.8-.7 1-2.4 1-2.4s.3-2.1.3-4.2v-2c0-2.1-.3-4.2-.3-4.2zM9.5 15.6V8.4l6.5 3.6-6.5 3.6z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7 .1 5.7.1 4.8.3 4 .6c-.8.3-1.5.7-2.2 1.4C1.1 2.7.7 3.4.4 4.2.1 5 0 5.9 0 7.2 0 8.5 0 8.9 0 12.2s0 3.7.1 5c.1 1.3.3 2.2.6 3 .3.8.7 1.5 1.4 2.2.7.7 1.4 1.1 2.2 1.4.8.3 1.7.5 3 .6 1.3.1 1.7.1 5 .1s3.7 0 5-.1c1.3-.1 2.2-.3 3-.6.8-.3 1.5-.7 2.2-1.4.7-.7 1.1-1.4 1.4-2.2.3-.8.5-1.7.6-3 .1-1.3.1-1.7.1-5s0-3.7-.1-5c-.1-1.3-.3-2.2-.6-3-.3-.8-.7-1.5-1.4-2.2C21.3 1.1 20.6.7 19.8.4 19 .1 18.1 0 16.8 0 15.5 0 15.1 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.8 1.4 1.4 0 000-2.8z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/joecoljoepro/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M24 12C24 5.373 18.627 0 12 0S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12h3.047V9.356c0-3.007 1.792-4.668 4.533-4.668 1.312 0 2.686.234 2.686.234v2.953H15.83c-1.491 0-1.956.925-1.956 1.874V12h3.328l-.532 3.47h-2.796v8.384C19.612 22.954 24 17.99 24 12z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@joecoljoe" target="_blank" rel="noopener" class="footer__social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.07A6.33 6.33 0 005.8 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.84-.1z"/></svg>
+          </a>
+          <a href="https://open.spotify.com/artist/0KW8tMeg9C7jIeQ2WyWqYN" target="_blank" rel="noopener" class="footer__social-link" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3c-.2.3-.6.4-1 .2-2.7-1.6-6-2-10-1.1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.3-1 8.1-.6 11.1 1.2.4.2.5.7.3 1.1zm1.5-3.3c-.3.4-.8.5-1.2.3-3.1-1.9-7.7-2.4-11.3-1.3-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.1-1.3 9.2-.7 12.7 1.5.3.2.5.7.3 1.2zm.1-3.4c-3.7-2.2-9.8-2.4-13.3-1.3-.5.2-1.1-.1-1.3-.6-.2-.5.1-1.1.6-1.3 4-1.2 10.7-1 14.9 1.5.5.3.6.9.4 1.4-.3.5-.9.6-1.3.3z"/></svg>
+          </a>
+          <a href="https://soundcloud.com/joe-col-music" target="_blank" rel="noopener" class="footer__social-link" aria-label="SoundCloud">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.113c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.113-.27-2.154c0-.057-.045-.1-.09-.1m-.899.828c-.05 0-.09.04-.099.1L0 14.479l.177 1.293c0 .053.05.1.099.1.05 0 .09-.047.099-.1l.208-1.293-.208-1.326c-.01-.06-.05-.1-.099-.1m1.83-1.89c-.064 0-.115.052-.123.122l-.22 3.205.22 3.105c.008.07.059.121.123.121.063 0 .114-.051.124-.121l.249-3.105-.25-3.205c-.009-.07-.06-.121-.123-.121m.9-.121c-.066 0-.12.054-.127.124l-.208 3.326.208 3.182c.007.071.061.122.128.122.065 0 .118-.051.126-.122l.237-3.182-.237-3.326c-.008-.07-.061-.124-.126-.124m.898.23c-.073 0-.133.06-.14.134l-.196 3.096.196 3.142c.007.073.067.132.14.132.073 0 .133-.059.14-.132l.222-3.142-.222-3.096c-.007-.074-.066-.134-.14-.134m.908-.33c-.081 0-.148.067-.153.15l-.18 3.411.18 3.086c.006.083.072.148.153.148.082 0 .146-.065.152-.148l.203-3.086-.203-3.411c-.006-.083-.07-.15-.152-.15m.914-.263c-.09 0-.162.072-.168.167l-.168 3.513.168 3.063c.006.094.078.166.168.166.089 0 .16-.072.167-.166l.19-3.063-.19-3.513c-.006-.095-.078-.167-.167-.167m1.041-.156c-.006-.1-.086-.179-.187-.179-.1 0-.181.079-.187.179l-.16 3.716.16 3.024c.006.099.086.177.187.177.1 0 .18-.078.187-.177l.182-3.024-.182-3.716m.912.022c-.101 0-.194.093-.2.195L9.35 14.46l.13 3.014c.006.103.095.193.198.193.103 0 .193-.09.2-.193l.147-3.014-.148-3.717c-.006-.102-.096-.195-.2-.195m.912.196c-.113 0-.207.1-.214.214l-.109 3.502.109 2.996c.006.113.1.211.214.211.113 0 .207-.098.214-.211l.124-2.996-.124-3.502c-.007-.114-.1-.214-.214-.214m.923.195c-.123 0-.222.106-.227.229l-.09 3.306.09 2.978c.006.123.105.227.227.227.122 0 .221-.104.228-.227l.103-2.978-.103-3.306c-.007-.123-.106-.229-.228-.229m.928-.088c-.133 0-.24.115-.245.247l-.07 3.394.07 2.958c.006.133.112.245.245.245.133 0 .24-.113.245-.245l.08-2.958-.08-3.394c-.005-.133-.112-.247-.245-.247m.947-.089c-.143 0-.257.124-.26.267l-.05 3.305.05 2.941c.003.143.117.264.26.264s.257-.121.26-.264l.057-2.941-.057-3.305c-.003-.143-.117-.267-.26-.267m.942.088c-.154 0-.278.133-.281.29l-.032 3.194.032 2.924c.003.157.127.287.281.287.154 0 .278-.13.281-.287l.037-2.924-.037-3.194c-.003-.156-.127-.29-.281-.29m.955-.353c-.167 0-.302.145-.305.315l-.016 3.532.016 2.909c.003.17.138.311.305.311.167 0 .302-.141.305-.311l.019-2.909-.019-3.532c-.003-.17-.138-.315-.305-.315m.96-.44c-.179 0-.322.154-.325.339l-.006 3.947.006 2.892c.003.186.146.334.325.334s.322-.148.325-.334l.006-2.892-.006-3.947c-.003-.185-.146-.339-.325-.339m.977-.14c-.19 0-.341.161-.344.363L14.74 14.4l.001 2.878c.003.202.155.365.344.365.19 0 .341-.163.344-.365l.003-2.878-.003-5.195c-.003-.202-.155-.363-.344-.363m2.6 2.067c-.38 0-.748.075-1.084.211-.221-2.49-2.291-4.447-4.826-4.447-1.061 0-2.036.336-2.825.914-.331.242-.342.477-.343.748v7.897c0 .247.193.452.44.482l8.638.006c1.881 0 3.397-1.538 3.397-3.409 0-1.884-1.515-3.402-3.397-3.402"/></svg>
+          </a>
+          <a href="mailto:joecoljoe@yahoo.com" class="footer__social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__links">
+          <a href="mentions-legales.html">Mentions legales</a>
+          <a href="politique-confidentialite.html">Politique de confidentialite</a>
+          <a href="mailto:joecoljoe@yahoo.com">Contact</a>
+        </div>
+        <p class="footer__copy">&copy; 2026 Joe Col Joe. Tous droits reserves.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/vendor/swiper-bundle.min.js" defer></script>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

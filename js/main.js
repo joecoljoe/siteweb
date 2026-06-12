@@ -6,13 +6,14 @@
 (function () {
   'use strict';
 
-  /* ---------- LOADER ---------- */
+  /* ---------- LOADER — masque quand tout est charge (images incluses)
+     Important : sur window.load (pas DOMContentLoaded) pour eviter le CLS
+     qui apparait si le Swiper/images se positionnent apres que l'utilisateur
+     voit deja la page. ---------- */
   window.addEventListener('load', function () {
     var loader = document.getElementById('loader');
-    setTimeout(function () {
-      loader.classList.add('is-hidden');
-      initAnimations();
-    }, 2200);
+    if (loader) loader.classList.add('is-hidden');
+    initAnimations();
   });
 
   /* ---------- CUSTOM CURSOR ---------- */
@@ -95,20 +96,29 @@
 
   function fillMosaic() {
     if (!bgMosaic || !mosaicGrid) return;
+    // Triple securite pour eviter tout risque de boucle infinie sur mobile
+    if (window.innerWidth < 900) return;
+    try {
+      if (getComputedStyle(bgMosaic).display === 'none') return;
+    } catch (e) { return; }
+
     var pageHeight = document.documentElement.scrollHeight;
     bgMosaic.style.height = pageHeight + 'px';
-    // Clone tiles to fill the full page height
     var originalTiles = Array.from(mosaicGrid.querySelectorAll('.bg-tile:not(.bg-tile--clone)'));
-    // Remove old clones
     mosaicGrid.querySelectorAll('.bg-tile--clone').forEach(function (c) { c.remove(); });
+
     var gridHeight = mosaicGrid.scrollHeight;
-    while (gridHeight < pageHeight + 400) {
+    var safety = 30;
+    while (gridHeight < pageHeight + 400 && safety > 0) {
       originalTiles.forEach(function (tile) {
         var clone = tile.cloneNode(true);
         clone.classList.add('bg-tile--clone');
         mosaicGrid.appendChild(clone);
       });
-      gridHeight = mosaicGrid.scrollHeight;
+      var newHeight = mosaicGrid.scrollHeight;
+      if (newHeight === gridHeight) break;
+      gridHeight = newHeight;
+      safety--;
     }
   }
 
@@ -183,17 +193,62 @@
     }
   });
 
+  /* ---------- LAZY SPOTIFY EMBED (IntersectionObserver) ---------- */
+  var spotifyPlayer = document.getElementById('spotifyPlayer');
+  if (spotifyPlayer && 'IntersectionObserver' in window) {
+    var spotifySrc = spotifyPlayer.getAttribute('data-spotify-src');
+    var spotifyLoaded = false;
+    var loadSpotify = function () {
+      if (spotifyLoaded) return;
+      spotifyLoaded = true;
+      var iframe = document.createElement('iframe');
+      iframe.setAttribute('data-testid', 'embed-iframe');
+      iframe.setAttribute('src', spotifySrc);
+      iframe.setAttribute('width', '100%');
+      iframe.setAttribute('height', '352');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('allow', 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture');
+      iframe.setAttribute('loading', 'lazy');
+      iframe.style.borderRadius = '12px';
+      iframe.style.display = 'block';
+      spotifyPlayer.innerHTML = '';
+      spotifyPlayer.appendChild(iframe);
+    };
+    var spotifyObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          loadSpotify();
+          spotifyObs.disconnect();
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    spotifyObs.observe(spotifyPlayer);
+  } else if (spotifyPlayer) {
+    // Fallback : si pas d'IntersectionObserver, chargement immediat
+    var iframe = document.createElement('iframe');
+    iframe.src = spotifyPlayer.getAttribute('data-spotify-src');
+    iframe.width = '100%'; iframe.height = '352';
+    iframe.frameBorder = '0';
+    iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+    iframe.style.borderRadius = '12px';
+    spotifyPlayer.innerHTML = '';
+    spotifyPlayer.appendChild(iframe);
+  }
+
   /* ---------- DEFERRED YOUTUBE VIDEO ---------- */
   var videoPoster = document.getElementById('videoPoster');
   var videoPlayer = document.getElementById('videoPlayer');
 
   if (videoPoster && videoPlayer) {
     videoPoster.addEventListener('click', function () {
+      var videoId = videoPoster.getAttribute('data-video-id') || '';
+      var videoTitle = videoPoster.getAttribute('data-video-title') || 'Joe Col Joe';
       var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/-fVkHK3H4ZI?autoplay=1&rel=0';
+      iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
       iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
       iframe.setAttribute('allowfullscreen', '');
-      iframe.setAttribute('title', 'No Way Out - Joe Col Joe');
+      iframe.setAttribute('title', videoTitle);
       videoPlayer.innerHTML = '';
       videoPlayer.appendChild(iframe);
     });
@@ -212,180 +267,47 @@
     });
   });
 
-  /* ---------- GSAP ANIMATIONS ---------- */
+  /* ---------- SCROLL ANIMATIONS (native IntersectionObserver, no GSAP) ---------- */
   function initAnimations() {
-    gsap.registerPlugin(ScrollTrigger);
+    if (!('IntersectionObserver' in window)) {
+      // Fallback : revele tout directement pour vieux navigateurs
+      document.querySelectorAll('[data-animate], .section-title, .news__card, .concerts__item')
+        .forEach(function (el) { el.classList.add('is-revealed'); });
+      return;
+    }
 
-    // Fade-up elements
-    document.querySelectorAll('[data-animate="fade-up"]').forEach(function (el) {
-      gsap.fromTo(el,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            once: true
-          }
-        }
-      );
-    });
-
-    // Section titles
-    document.querySelectorAll('.section-title').forEach(function (el) {
-      gsap.fromTo(el,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
-            once: true
-          }
-        }
-      );
-    });
-
-    // Quote clip-path reveal
-    document.querySelectorAll('[data-animate="clip"]').forEach(function (el) {
-      ScrollTrigger.create({
-        trigger: el,
-        start: 'top 75%',
-        once: true,
-        onEnter: function () {
-          el.classList.add('is-revealed');
-          var author = el.parentElement.querySelector('.quote-section__author');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.classList.add('is-revealed');
+        // Clip-path reveal + auteur pour les citations
+        if (el.getAttribute('data-animate') === 'clip') {
+          var author = el.parentElement && el.parentElement.querySelector('.quote-section__author');
           if (author) author.classList.add('is-revealed');
         }
+        io.unobserve(el);
       });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    var selectors = [
+      '[data-animate]',
+      '.section-title',
+      '.news__card',
+      '.concerts__item'
+    ];
+    document.querySelectorAll(selectors.join(',')).forEach(function (el) {
+      io.observe(el);
     });
 
-    // News cards stagger
-    var newsCards = document.querySelectorAll('.news__card');
-    if (newsCards.length) {
-      gsap.fromTo(newsCards,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '.news__grid',
-            start: 'top 80%',
-            once: true
-          }
-        }
-      );
-    }
-
-    // Shop cards stagger
-    var shopCards = document.querySelectorAll('.shop__card');
-    if (shopCards.length) {
-      gsap.fromTo(shopCards,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '.shop__grid',
-            start: 'top 80%',
-            once: true
-          }
-        }
-      );
-    }
-
-    // Concert items stagger
-    var concertItems = document.querySelectorAll('.concerts__item');
-    if (concertItems.length) {
-      gsap.fromTo(concertItems,
-        { opacity: 0, x: -30 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-          stagger: 0.12,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '.concerts__list',
-            start: 'top 80%',
-            once: true
-          }
-        }
-      );
-    }
-
-    // Hero slide content animation
-    heroSwiper.on('slideChangeTransitionStart', function () {
-      var activeSlide = heroSwiper.slides[heroSwiper.activeIndex];
-      if (!activeSlide) return;
-      var content = activeSlide.querySelector('.hero__slide-content');
-      if (content) {
-        gsap.fromTo(content.children,
-          { opacity: 0, y: 30 },
-          { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }
-        );
-      }
-    });
-
-    // Parallax background glow
-    gsap.to('body::before', {
-      scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true
-      }
-    });
-
-    // Newsletter section
-    var newsletter = document.querySelector('.newsletter');
-    if (newsletter) {
-      gsap.fromTo(newsletter.querySelectorAll('.newsletter__title, .newsletter__text, .newsletter__form'),
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: newsletter,
-            start: 'top 80%',
-            once: true
-          }
-        }
-      );
-    }
-
-    // Featured video
-    var videoWrapper = document.querySelector('.featured-video__wrapper');
-    if (videoWrapper) {
-      gsap.fromTo(videoWrapper,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: videoWrapper,
-            start: 'top 80%',
-            once: true
-          }
-        }
-      );
+    // Swiper slide content fade (toujours actif sur changement)
+    if (typeof heroSwiper !== 'undefined' && heroSwiper.on) {
+      heroSwiper.on('slideChangeTransitionStart', function () {
+        var activeSlide = heroSwiper.slides[heroSwiper.activeIndex];
+        if (!activeSlide) return;
+        var content = activeSlide.querySelector('.hero__slide-content');
+        if (content) content.classList.add('is-animating');
+      });
     }
   }
 
