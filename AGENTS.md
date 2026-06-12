@@ -32,3 +32,15 @@ Deux personnes poussent directement sur `main`. Pour éviter les conflits :
 
 ## ✅ Règle d'or
 Si tu vois un changement à publier sur joecoljoe.com : édite ici, `push` sur `main`, c'est tout.
+
+## 🤖 Instruction pour l'agent (Codex / Antigravity / Claude Code)
+Quand l'utilisateur demande une modification du site, applique ce cycle COMPLET sans
+redemander à chaque étape :
+1. `git pull --rebase origin main`
+2. Applique la modification demandée dans les fichiers.
+3. `git add -A && git commit -m "<message clair en français>"`
+4. `git push origin main`
+
+Pousser sur `main` publie automatiquement le site sur https://joecoljoe.com (~1 min).
+Considère donc qu'« appliquer une modif » = aller jusqu'au `git push`. En cas de conflit
+au `pull --rebase`, résous-le puis continue.
